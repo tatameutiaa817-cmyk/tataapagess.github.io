@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Untuk Kamu</title>
+
+<style>
+
+body{
+background:#000;
+color:white;
+font-family:Georgia, serif;
+height:100vh;
+margin:0;
+display:flex;
+justify-content:center;
+align-items:center;
+overflow:hidden;
+}
+
+/* bintang background */
+
+.stars{
+position:absolute;
+width:100%;
+height:100%;
+background:url("https://www.transparenttextures.com/patterns/stardust.png");
+opacity:0.4;
+}
+
+/* container */
+
+.container{
+text-align:center;
+z-index:2;
+max-width:600px;
+}
+
+/* amplop */
+
+.envelope{
+border:1px solid white;
+padding:20px 40px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.envelope:hover{
+background:white;
+color:black;
+}
+
+/* surat */
+
+.letter{
+display:none;
+margin-top:30px;
+border:1px solid white;
+padding:40px;
+min-height:150px;
+}
+
+/* efek ketikan */
+
+.typing{
+border-right:2px solid white;
+white-space:nowrap;
+overflow:hidden;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="stars"></div>
+
+<div class="container">
+
+<div class="envelope" onclick="openLetter()">
+Open the letter
+</div>
+
+<div class="letter" id="letter">
+<p id="text" class="typing"></p>
+</div>
+
+</div>
+
+<!-- musik -->
+<audio id="music" autoplay loop>
+<source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5a3f0a4b43.mp3" type="audio/mp3">
+</audio>
+
+<script>
+
+let message = "Aku tidak tahu apakah kamu akan membaca ini atau tidak. Tapi jika kamu sampai di halaman ini, berarti ada sesuatu yang ingin aku sampaikan. Terima kasih sudah hadir di hidupku.";
+
+let i = 0;
+
+function openLetter(){
+
+document.getElementById("letter").style.display="block";
+
+typeWriter();
+
+}
+
+function typeWriter(){
+
+if(i < message.length){
+
+document.getElementById("text").innerHTML += message.charAt(i);
+
+i++;
+
+setTimeout(typeWriter,50);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
